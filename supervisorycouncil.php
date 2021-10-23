@@ -51,7 +51,7 @@ if ( isset( $_POST['username'] ) ) {
     }
     // Criterion 2
     unset($q);
-    $q = $mysqli->prepare("SELECT COUNT(*) FROM revision_userindex JOIN page ON page_id = rev_page AND page_namespace = 0 WHERE rev_timestamp < 20201012000000 AND rev_actor=?");
+    $q = $mysqli->prepare("SELECT COUNT(*) FROM revision_userindex JOIN page ON page_id = rev_page AND page_namespace = 0 WHERE rev_timestamp < 20211018000000 AND rev_actor=?");
     $q->bind_param("i", $actor_id);
     $q->execute();
     $q->bind_result($edits);
@@ -59,7 +59,7 @@ if ( isset( $_POST['username'] ) ) {
     $edits = $nfd->format($edits);
     // Criterion 3
     unset($q);
-    $q = $mysqli->prepare("SELECT COUNT(*) FROM revision_userindex JOIN page ON page_id = rev_page AND page_namespace = 0 WHERE rev_timestamp < 20201012000000 AND rev_timestamp > 20191012000000 AND rev_actor=?");
+    $q = $mysqli->prepare("SELECT COUNT(*) FROM revision_userindex JOIN page ON page_id = rev_page AND page_namespace = 0 WHERE rev_timestamp < 20211018000000 AND rev_timestamp > 20191012000000 AND rev_actor=?");
     $q->bind_param("i", $actor_id);
     $q->execute();
     $q->bind_result($recentedits);
@@ -96,7 +96,7 @@ if ( isset( $_POST['username'] ) ) {
       <div class="container">
         <h1 class="mt-4">ارزیابی شرایط رأی‌مندی انتخابات هیئت نظارت</h1>
         <p>این فرم به شما کمک می‌کند که وضعیت یک کاربر ویکی‌پدیای فارسی را از نظر برخورداری شرایط رأی‌مندی در <a href=
-        "https://fa.wikipedia.org/wiki/%D9%88%D9%BE:%D9%86%D8%A7%D8%B8%D8%B1%DB%B1%DB%B1">انتخابات دور یازدهم هیئت
+        "https://fa.wikipedia.org/wiki/%D9%88%D9%BE:%D9%86%D8%A7%D8%B8%D8%B1%DB%B1%DB%B2">انتخابات دور دوازدهم هیئت
         نظارت</a> بررسی کنید.</p>
         <p>شرایط لازم برای برخورداری از حق رأی (رأی‌مندی) در <a href=
         "https://fa.wikipedia.org/wiki/%D9%88%D9%BE:%D8%B1%DA%AF%D9%87">اینجا</a> در دسترس هستند. این ابزار صرفاً برای
@@ -145,7 +145,7 @@ if ( isset( $_POST['username'] ) ) {
                   <tr>
                     <td>تاریخ ایجاد حساب</td>
                     <td><?php echo $mints; ?></td>
-                    <td>پیش از ۲۰۲۰٫۷٫۱۲</td>
+                    <td>پیش از ۲۰۲۱٫۷٫۱۸</td>
                   </tr>
                   <tr>
                     <td>ویرایش در مقاله‌ها پیش از شروع انتخابات</td>
